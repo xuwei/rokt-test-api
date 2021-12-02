@@ -1,9 +1,14 @@
 const functions = require("firebase-functions");
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.successExample = functions.https.onRequest((request, response) => {
+exports.sampleJson = functions.https.onRequest((request, response) => {
   const json = {"say": "hello world"};
   response.send(json);
+});
+
+exports.errorCode = functions.https.onRequest((request, response) => {
+    response.status(500).send("Error")
+});
+
+exports.emptyData = functions.https.onRequest((request, response) => {
+    response.send(null);
 });
